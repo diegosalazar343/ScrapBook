@@ -25,7 +25,7 @@ ScrapBook.prototype.deletePlace = function (id) {
   if (this.places[id] === undefined) {
     return false;
   }
-  delete this.contacts[id];
+  delete this.places[id];
   return true;
 }
 //Business Logic for Places we've been
@@ -46,12 +46,12 @@ function displayPlaceDetails(scrapBookToDisplay) {
   let htmlForPlaceInfo = "";
   Object.keys(scrapBookToDisplay.places).forEach(function(key) {
     const place = scrapBookToDisplay.findPlace(key);
-    htmlForPlaceInfo += "<li id=" + place.id + ">" + place.city + " " + place.state + " " + "</li>";
+    htmlForPlaceInfo += "<li id=" + place.id + ">" + place.city + " " + place.state + "</li>";
   });
   placesList.html(htmlForPlaceInfo);
 };
 
-function showPlace(placeID){
+function showPlace(placeId) {
   const place = scrapBook.findPlace(placeId);
   $("#show-place").show();
   $(".city").html(place.city);
