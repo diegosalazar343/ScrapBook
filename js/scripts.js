@@ -29,13 +29,21 @@ ScrapBook.prototype.deletePlace = function (id) {
   return true;
 }
 //Business Logic for Places we've been
-function Place (city, state) {
+function Place (city, state, month, year, weather, notes) {
   this.city = city;
   this.state = state;
+  this.month = month;
+  this.year = year;
+  this.weather = weather;
+  this.notes = notes;
 }
 
 Place.prototype.fullPlace = function() {
   return this.city + " " + this.state;
+}
+
+Place.prototype.fullDate = function() {
+  return this.month + " " + this.year;
 }
 
 //User Interface
@@ -46,7 +54,7 @@ function displayPlaceDetails(scrapBookToDisplay) {
   let htmlForPlaceInfo = "";
   Object.keys(scrapBookToDisplay.places).forEach(function(key) {
     const place = scrapBookToDisplay.findPlace(key);
-    htmlForPlaceInfo += "<li id=" + place.id + ">" + place.city + " " + place.state + "</li>";
+    htmlForPlaceInfo += "<li id=" + place.id + ">" + place.city + " " + place.state + " " + place.month + " " + place.year + " " + place.weather + " " + place.notes + " " + "</li>";
   });
   placesList.html(htmlForPlaceInfo);
 };
@@ -56,6 +64,10 @@ function showPlace(placeId) {
   $("#show-place").show();
   $(".city").html(place.city);
   $(".state").html(place.state);
+  $(".month").html(place.month);
+  $(".year").html(place.year);
+  $(".weather").html(place.weather);
+  $(".notes").html(place.notes);
   let buttons = $("#buttons");
   buttons.empty();
   buttons.append("<button class='deleteButton' id=" + +place.id+ ">Delete</button>");
@@ -78,11 +90,19 @@ $(document).ready(function() {
     event.preventDefault();
     const inputtedCity = $("input#new-city").val();
     const inputtedState = $("input#new-state").val();
+    const inputtedMonth = $("input#new-month").val();
+    const inputtedYear = $("input#new-year").val();
+    const inputtedWeather = $("input#new-weather").val();
+    const inputtedNotes = $("input#new-notes").val();
 
     $("input#new-city").val(" ");
     $("input#new-state").val(" ");
+    $("input#new-month").val(" ");
+    $("input#new-year").val(" ");
+    $("input#new-weather").val(" ");
+    $("input#new-notes").val(" ");
 
-    let newPlace = new Place(inputtedCity, inputtedState);
+    let newPlace = new Place(inputtedCity, inputtedState, inputtedMonth, inputtedYear, inputtedWeather, inputtedNotes);
     scrapBook.addPlace(newPlace);
     displayPlaceDetails(scrapBook);
   });
