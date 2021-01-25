@@ -10,13 +10,22 @@
 <body>
   <div class="container">
     <h1>A ScrapBook</h1>
+    <hr>
     <h2>Add a Place</h2>
     <p>Type in below where we have been!</p>
     <form id = "new-places">
-      <label for="new-city">City</label>
+      <label for="new-city">City:</label>
       <input id="new-city" type="text">
-      <label for="new-state">State</label>
+      <label for="new-state">State:</label>
       <input id="new-state" type="text">
+      <label for="new-month">Month:</label>
+      <input id="new-month" type="text">
+      <label for="new-year">Year:</label>
+      <input id="new-year" type="text">
+      <label for="new-weather">Describe the weather:</label>
+      <input id="new-weather" type="text">
+      <label for="new-notes">Notes: </label>
+      <input id="new-notes" type="text">
       <button type="submit">Add</button>
     </form>
 
@@ -28,6 +37,10 @@
     <div id="show-place">
       <p>City: <span class="city"></span></p>
       <p>State: <span class="state"></span></p>
+      <p>Month: <span class="month"></span></p>
+      <p>Year: <span class="year"></span></p>
+      <p>Weather: <span class="weather"></span></p>
+      <p>Notes: <span class="notes"></span></p>
       <div id="buttons">
       </div>
     </div>
