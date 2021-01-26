@@ -1,3 +1,22 @@
 #show-place {
   display: none;
+  padding-left: 40px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  padding-top: 20px;
+}
+
+.form-floating {
+  padding-top: 10px;
+}
+
+body{
+  padding-top: 20px;
+  background-color: rgb(96, 155, 170);
+  color: rgb(202, 192, 134);
 }

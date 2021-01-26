@@ -54,7 +54,7 @@ function displayPlaceDetails(scrapBookToDisplay) {
   let htmlForPlaceInfo = "";
   Object.keys(scrapBookToDisplay.places).forEach(function(key) {
     const place = scrapBookToDisplay.findPlace(key);
-    htmlForPlaceInfo += "<li id=" + place.id + ">" + place.city + " " + place.state + " " + place.month + " " + place.year + " " + place.weather + " " + place.notes + " " + "</li>";
+    htmlForPlaceInfo += "<li id=" + place.id + ">" + place.city + " " + place.state + " " + /*place.month + " " + place.year + " " + place.weather + " " + place.notes + " " +*/ "</li>";
   });
   placesList.html(htmlForPlaceInfo);
 };
@@ -93,14 +93,14 @@ $(document).ready(function() {
     const inputtedMonth = $("input#new-month").val();
     const inputtedYear = $("input#new-year").val();
     const inputtedWeather = $("input#new-weather").val();
-    const inputtedNotes = $("input#new-notes").val();
+    const inputtedNotes = $("textarea#new-notes").val();
 
     $("input#new-city").val(" ");
     $("input#new-state").val(" ");
     $("input#new-month").val(" ");
     $("input#new-year").val(" ");
     $("input#new-weather").val(" ");
-    $("input#new-notes").val(" ");
+    $("textarea#new-notes").val(" ");
 
     let newPlace = new Place(inputtedCity, inputtedState, inputtedMonth, inputtedYear, inputtedWeather, inputtedNotes);
     scrapBook.addPlace(newPlace);
